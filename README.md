@@ -1,6 +1,18 @@
 # 🐳 Flask Web App with Docker
 
+[![Railway](https://img.shields.io/badge/Railway-Deployed-success)](https://app-web-dockers-production.up.railway.app)
+[![Python](https://img.shields.io/badge/Python-3.13-blue)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED)](https://www.docker.com/)
+
 Web application with visit counter built with Flask, Redis and Nginx, fully containerized with Docker.
+
+## 🌍 Live Demo
+
+[https://app-web-dockers-production.up.railway.app](https://app-web-dockers-production.up.railway.app)
+
+## Preview
+
+![App Preview](Screenshot.png)
 
 ## Architecture
 ```
