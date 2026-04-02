@@ -1,0 +1,37 @@
+services:
+  redis:
+    image: redis:alpine
+    mem_limit: 256m
+    volumes:
+      - redis-data:/data
+    networks:
+      - mi-red
+
+  app:
+    build: .
+    depends_on:
+      - redis
+    mem_limit: 256m
+    restart: on-failure
+    networks:
+      - mi-red
+    env_file:
+      - .env
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
+    networks:
+      - mi-red
+
+networks:
+  mi-red:
+    driver: bridge
+
+volumes:
+  redis-data:
