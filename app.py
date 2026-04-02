@@ -4,14 +4,7 @@ import os
 
 app = Flask(__name__)
 
-REDIS_URL = os.getenv('REDIS_URL')
-REDIS_HOST = os.getenv('REDIS_HOST', 'redis')
-REDIS_PORT = int(os.getenv('REDIS_PORT', 6379))
-
-if REDIS_URL:
-    r = redis.from_url(REDIS_URL)
-else:
-    r = redis.Redis(host=REDIS_HOST, port=REDIS_PORT)
+r = redis.from_url(os.getenv('REDIS_URL'))
 
 @app.route('/')
 def inicio():
