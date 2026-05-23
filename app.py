@@ -8,12 +8,12 @@ r = redis.from_url(os.getenv('REDIS_URL'))
 
 @app.route('/')
 def inicio():
-    visits = r.incr('visitas')
+    visits = r.incr('visits')
     return f'''
     <html>
         <body style="font-family: Arial; text-align: center; margin-top: 100px;">
             <h1>🐳 My First Web App with Dockers!!</h1>
-            <h2>This Website has been visited by: <span style="color: blue;">{visits}</span> veces</h2>
+            <h2>This Website has been visited <span style="color: blue;">{visits}</span> times</h2>
         </body>
     </html>
     '''
